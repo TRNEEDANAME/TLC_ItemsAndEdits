@@ -1,0 +1,9 @@
+VERSION = 1,
+
+option TLCItemEdits.Debug
+{
+    type = boolean,
+    default = false,
+    page = TLCItemEdits,
+    translation = TLCItemEdits_Debug,
+}

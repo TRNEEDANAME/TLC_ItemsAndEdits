@@ -1,0 +1,22 @@
+module Base
+{
+    craftRecipe CarveToothbrush
+    {
+        time = 120,
+        SkillRequired = Carving:3,
+        NeedToBeLearn = false,
+        Tags = AnySurfaceCraft,
+        timedAction = SharpenStakeWood,
+        xpAward = Carving:3,
+        category = Carving,
+        inputs
+        {
+            item 1 [Base.SmallHandle] mode:destroy flags[Prop2],
+            item 1 [Base.GrassTuft] mode:destroy,
+        }
+        outputs
+        {
+            item 1 Base.Toothbrush,
+        }
+    }
+}
