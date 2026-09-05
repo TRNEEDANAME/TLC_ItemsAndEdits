@@ -1,5 +1,15 @@
 local DurabilityAdjusted = false
 
+TLC_ItemsAndEdits = TLC_ItemsAndEdits or {}
+
+function TLC_ItemsAndEdits.CreateMeatStrips(items, result, player)
+    local source = items:get(0)
+    local sourceWeight = source:getActualWeight()
+    local stripCount = math.max(1, math.floor(sourceWeight / 0.2))
+
+    result:setCount(stripCount)
+end
+
 local function debugPrint(...)
     local settings = SandboxVars and SandboxVars.TLCItemEdits
 

@@ -6,7 +6,7 @@ module TLC_ItemsAndEdits
         timedAction = SliceFood_Surface,
         SkillRequired = Cooking:1,
         NeedToBeLearn = false,
-        Tags = AnySurfaceCraft,Cooking,
+        Tags = AnySurfaceCraft;Cooking,
         xpAward = Cooking:1,
         category = Cooking,
         inputs
@@ -15,7 +15,8 @@ module TLC_ItemsAndEdits
         }
         outputs
         {
-            item 4 TLC_ItemsAndEdits.MeatStrips,
+            item 1 TLC_ItemsAndEdits.MeatStrips,
         }
+        OnCreate = TLC_ItemsAndEdits.CreateMeatStrips,
     }
 }

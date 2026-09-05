@@ -4,6 +4,9 @@ module TLC_ItemsAndEdits
     {
         Type = Food,
         DisplayName = Raw Meat Strips,
+        Icon = Steak,
+        StaticModel = Steak,
+        WorldStaticModel = Steak,
         Weight = 0.2,
         HungerChange = -12,
         Calories = 80,
