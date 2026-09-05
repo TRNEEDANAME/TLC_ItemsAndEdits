@@ -10,7 +10,7 @@ module TLC_ItemsAndEdits
         category = Cooking,
         inputs
         {
-            item 1 [Base.Meat] mode:destroy,
+            item 1 [Base.Beef;Base.Steak;Base.MuttonChop;Base.Chicken;Base.ChickenFillet;Base.Pork;Base.PorkChop;Base.TurkeyLegs;Base.TurkeyWings;Base.TurkeyFillet;Base.Rabbitmeat;Base.Smallanimalmeat;Base.Venison;Base.Salmon;Base.FrogMeat;Base.FishFillet;Base.Smallbirdmeat] mode:destroy,
         }
         outputs
         {
