@@ -3,9 +3,10 @@ module TLC_ItemsAndEdits
     craftRecipe CutMeatIntoStrips
     {
         time = 80,
+        timedAction = SliceFood_Surface,
         SkillRequired = Cooking:1,
         NeedToBeLearn = false,
-        Tags = AnySurfaceCraft,
+        Tags = AnySurfaceCraft,Cooking,
         xpAward = Cooking:1,
         category = Cooking,
         inputs
