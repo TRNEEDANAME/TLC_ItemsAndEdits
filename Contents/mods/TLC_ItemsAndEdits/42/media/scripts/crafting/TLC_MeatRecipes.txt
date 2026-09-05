@@ -1,0 +1,20 @@
+module TLC_ItemsAndEdits
+{
+    craftRecipe CutMeatIntoStrips
+    {
+        time = 80,
+        SkillRequired = Cooking:1,
+        NeedToBeLearn = false,
+        Tags = AnySurfaceCraft,
+        xpAward = Cooking:1,
+        category = Cooking,
+        inputs
+        {
+            item 1 [Base.Meat] mode:destroy,
+        }
+        outputs
+        {
+            item 4 TLC_ItemsAndEdits.MeatStrips,
+        }
+    }
+}

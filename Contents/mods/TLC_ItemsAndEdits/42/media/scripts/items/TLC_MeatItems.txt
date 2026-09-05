@@ -1,0 +1,22 @@
+module TLC_ItemsAndEdits
+{
+    item MeatStrips
+    {
+        Type = Food,
+        DisplayName = Raw Meat Strips,
+        Weight = 0.2,
+        HungerChange = -12,
+        Calories = 80,
+        Proteins = 8,
+        Lipids = 4,
+        Carbohydrates = 0,
+        DaysFresh = 2,
+        DaysTotallyFresh = 1,
+        DaysRotten = 4,
+        IsCookable = true,
+        MinutesToCook = 240,
+        MinutesToBurn = 480,
+        ReplaceOnCooked = Base.DehydratedMeatStick,
+    }
+
+}
