@@ -2,12 +2,43 @@ local DurabilityAdjusted = false
 
 TLC_ItemsAndEdits = TLC_ItemsAndEdits or {}
 
-function TLC_ItemsAndEdits.CreateMeatStrips(items, result, player)
-    local source = items:get(0)
-    local sourceWeight = source:getActualWeight()
-    local stripCount = math.max(1, math.floor(sourceWeight / 0.2))
+TLC_ItemsAndEdits.WoundBodyParts = {
+    Head = "Head",
+    Neck = "Neck",
+    Groin = "Groin",
+    TorsoUpper = "Torso_Upper",
+    TorsoLower = "Torso_Lower",
+    UpperTorso = "Torso_Upper",
+    LowerTorso = "Torso_Lower",
+    LeftUpperArm = "UpperArm_L",
+    RightUpperArm = "UpperArm_R",
+    LeftForearm = "ForeArm_L",
+    RightForearm = "ForeArm_R",
+    LeftHand = "Hand_L",
+    RightHand = "Hand_R",
+    LeftThigh = "UpperLeg_L",
+    RightThigh = "UpperLeg_R",
+    LeftShin = "LowerLeg_L",
+    RightShin = "LowerLeg_R",
+    LeftFoot = "Foot_L",
+    RightFoot = "Foot_R",
+}
 
-    result:setCount(stripCount)
+TLC_ItemsAndEdits.WoundTypes = {
+    Bleeding = "bleeding",
+    Burn = "burn",
+    Bullet = "bullet",
+    DeepWound = "deepWound",
+    Fracture = "fracture",
+    GlassShard = "glass",
+    Laceration = "cut",
+    Scratch = "scratch",
+}
+
+function TLCItemEdits.GetWoundDuration(baseDuration)
+    local settings = SandboxVars and SandboxVars.TLCItemEdits
+    local multiplier = settings and settings.WoundDurationMultiplier or 1
+    return baseDuration * multiplier
 end
 
 local function debugPrint(...)
