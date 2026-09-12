@@ -35,7 +35,7 @@ TLC_ItemsAndEdits.WoundTypes = {
     Scratch = "scratch",
 }
 
-function TLCItemEdits.GetWoundDuration(baseDuration)
+function TLC_ItemsAndEdits.GetWoundDuration(baseDuration)
     local settings = SandboxVars and SandboxVars.TLCItemEdits
     local multiplier = settings and settings.WoundDurationMultiplier or 1
     return baseDuration * multiplier
