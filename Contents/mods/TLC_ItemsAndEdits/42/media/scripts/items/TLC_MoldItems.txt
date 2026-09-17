@@ -1,0 +1,138 @@
+module TLC_ItemsAndEdits
+{
+    item WoodenBulletMold
+    {
+        Type = Normal,
+        DisplayName = Wooden Bullet Mold,
+        Weight = 0.3,
+    }
+
+    item WoodenShotgunMold
+    {
+        Type = Normal,
+        DisplayName = Wooden Shotgun Shell Mold,
+        Weight = 0.3,
+    }
+
+    item ClayBulletMoldUnfired
+    {
+        Type = Normal,
+        DisplayName = Unfired Clay Bullet Mold,
+        Weight = 0.1,
+    }
+
+    item ClayShotgunMoldUnfired
+    {
+        Type = Normal,
+        DisplayName = Unfired Clay Shotgun Shell Mold,
+        Weight = 0.1,
+    }
+
+    item ClayBulletMold
+    {
+        Type = Normal,
+        DisplayName = Fired Clay Bullet Mold,
+        Weight = 0.1,
+    }
+
+    item ClayShotgunMold
+    {
+        Type = Normal,
+        DisplayName = Fired Clay Shotgun Shell Mold,
+        Weight = 0.1,
+    }
+
+    model ShotGunShellsMold_Ground
+    {
+        mesh = WorldItems/ShotGunShellstMold,
+        texture = WorldItems/ShotgunShellsMold,
+        scale = 0.4,
+    }
+
+    item BulletMold
+    {
+        Type = Normal,
+        DisplayName = Bullet Mold,
+        StaticModel = ShotGunShellsMold_Ground,
+        WorldStaticModel = ShotGunShellsMold_Ground,
+        Weight = 0.5,
+    }
+
+    item ShotgunMold
+    {
+        Type = Normal,
+        DisplayName = Shotgun Shell Mold,
+        StaticModel = ShotGunShellsMold_Ground,
+        WorldStaticModel = ShotGunShellsMold_Ground,
+        Weight = 0.5,
+    }
+
+    item 9mmBulletCasing
+    {
+        DisplayCategory = Ammo,
+        ItemType = base:normal,
+        Weight = 0.03,
+        Icon = PistolAmmo,
+        count = 3,
+        MetalValue = 1.0,
+        WorldStaticModel = 9mmRounds,
+        Tags = base:normal,
+    }
+
+    item 45BulletCasing
+    {
+        DisplayCategory = Ammo,
+        ItemType = base:normal,
+        Weight = 0.03,
+        Icon = PistolAmmo,
+        count = 3,
+        MetalValue = 1.0,
+        WorldStaticModel = 9mmRounds,
+        Tags = base:normal,
+    }
+
+    item 556BulletCasing
+    {
+        DisplayCategory = Ammo,
+        ItemType = base:normal,
+        Weight = 0.03,
+        Icon = PistolAmmo,
+        count = 3,
+        MetalValue = 1.0,
+        WorldStaticModel = 9mmRounds,
+        Tags = base:normal,
+    }
+
+    item 308BulletCasing
+    {
+        DisplayCategory = Ammo,
+        ItemType = base:normal,
+        Weight = 0.03,
+        Icon = PistolAmmo,
+        count = 3,
+        MetalValue = 1.0,
+        WorldStaticModel = 9mmRounds,
+        Tags = base:normal,
+    }
+
+    item ShotgunShellCasing
+    {
+        DisplayCategory = Ammo,
+        ItemType = base:normal,
+        Weight = 0.03,
+        Icon = PistolAmmo,
+        count = 3,
+        MetalValue = 1.0,
+        WorldStaticModel = ShotGunShells,
+        Tags = base:normal,
+    }
+
+    item CastShotgunShell
+    {
+        Type = Normal,
+        DisplayName = Cast Shotgun Shell,
+        StaticModel = WorldItems/Cast_Bar_Metal,
+        WorldStaticModel = 9mmRounds,
+        Weight = 0.06,
+    }
+}

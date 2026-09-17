@@ -23,33 +23,33 @@ end
 local woundActions = {
 	bleeding = function(bodyPart)
 		bodyPart:setBleeding(true)
-		bodyPart:setBleedingTime(TLC_ItemsAndEdits.GetWoundDuration(10))
+		bodyPart:setBleedingTime(TLCItemEdits.GetWoundDuration(10))
 	end,
 	burn = function(bodyPart)
 		bodyPart:setBurned()
-		bodyPart:setBurnTime(TLC_ItemsAndEdits.GetWoundDuration(50))
+		bodyPart:setBurnTime(TLCItemEdits.GetWoundDuration(50))
 	end,
 	bullet = function(bodyPart)
 		bodyPart:setHaveBullet(true, 0)
 	end,
 	cut = function(bodyPart)
 		bodyPart:setCut(true, true)
-		bodyPart:setCutTime(TLC_ItemsAndEdits.GetWoundDuration(10))
+		bodyPart:setCutTime(TLCItemEdits.GetWoundDuration(10))
 	end,
 	deepWound = function(bodyPart)
 		bodyPart:generateDeepWound()
-		bodyPart:setDeepWoundTime(TLC_ItemsAndEdits.GetWoundDuration(20))
+		bodyPart:setDeepWoundTime(TLCItemEdits.GetWoundDuration(20))
 	end,
 	fracture = function(bodyPart)
 		bodyPart:generateFracture(10.0)
-		bodyPart:setFractureTime(TLC_ItemsAndEdits.GetWoundDuration(30))
+		bodyPart:setFractureTime(TLCItemEdits.GetWoundDuration(30))
 	end,
 	glass = function(bodyPart)
 		bodyPart:generateDeepShardWound()
 	end,
 	scratch = function(bodyPart)
 		bodyPart:setScratched(true, true)
-		bodyPart:setScratchTime(TLC_ItemsAndEdits.GetWoundDuration(10))
+		bodyPart:setScratchTime(TLCItemEdits.GetWoundDuration(10))
 	end,
 }
 
@@ -135,5 +135,3 @@ local function registerMongooseWoundCommand()
 	mongooseServer._SlashHandlers["/wound"] = handleWoundCommand
 	return true
 end
-
-Events.OnServerStarted.Add(registerMongooseWoundCommand)
