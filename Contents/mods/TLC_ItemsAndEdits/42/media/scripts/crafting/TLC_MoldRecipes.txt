@@ -44,14 +44,14 @@ module Base
     {
         time = 120,
         SkillRequired = Pottery:2,
-        timedAction = Making,
-        Tags = AnySurfaceCraft;Pottery,
-        xpAward = Pottery:5,
+        timedAction = Craft_PotteryWheel,
+        Tags = PotteryWheel,
+        xpAward = Pottery:25,
         category = Pottery,
         inputs
         {
             item 1 [Base.Clay],
-            item 1 TLC_ItemsAndEdits.WoodenBulletMold mode:keep,
+            item 1 [TLC_ItemsAndEdits.WoodenBulletMold] mode:keep,
         }
         outputs
         {
@@ -63,14 +63,14 @@ module Base
     {
         time = 120,
         SkillRequired = Pottery:2,
-        timedAction = Making,
-        Tags = AnySurfaceCraft;Pottery,
-        xpAward = Pottery:5,
+        timedAction = Craft_PotteryWheel,
+        Tags = PotteryWheel,
+        xpAward = Pottery:25,
         category = Pottery,
         inputs
         {
             item 1 [Base.Clay],
-            item 1 TLC_ItemsAndEdits.WoodenShotgunMold mode:keep,
+            item 1 [TLC_ItemsAndEdits.WoodenShotgunMold] mode:keep,
         }
         outputs
         {
@@ -86,7 +86,7 @@ module Base
         category = Pottery,
         inputs
         {
-            item 10 TLC_ItemsAndEdits.ClayBulletMoldUnfired,
+            item 10 [TLC_ItemsAndEdits.ClayBulletMoldUnfired],
             item 1 tags[base:startfire],
             item 1 tags[base:log;base:charcoal],
         }
@@ -104,7 +104,7 @@ module Base
         category = Pottery,
         inputs
         {
-            item 10 TLC_ItemsAndEdits.ClayShotgunMoldUnfired,
+            item 10 [TLC_ItemsAndEdits.ClayShotgunMoldUnfired],
             item 1 tags[base:startfire],
             item 1 tags[base:log;base:charcoal],
         }
@@ -114,53 +114,18 @@ module Base
         }
     }
 
-    craftRecipe CastIronBulletMolds
-    {
-        time = 200,
-        SkillRequired = Blacksmith:10,
-        Tags = Furnace,
-        category = Blacksmithing,
-        inputs
-        {
-            item 1 [Base.CeramicCrucible_Iron;Base.CeramicCrucibleSmall_Iron],
-            item 1 tags[base:crudetongs;base:tongs] mode:keep flags[MayDegradeLight],
-            item 2 tags[base:charcoal],
-            item 10 TLC_ItemsAndEdits.ClayBulletMold mode:destroy
-        }
-        outputs
-        {
-            item 10 TLC_ItemsAndEdits.BulletMold,
-        }
-    }
-
-    craftRecipe CastIronShotgunMolds
-    {
-        time = 200,
-        SkillRequired = Blacksmith:10,
-        Tags = Furnace,
-        category = Blacksmithing,
-        inputs
-        {
-            item 1 [Base.CeramicCrucible_Iron;Base.CeramicCrucibleSmall_Iron],
-            item 1 tags[base:crudetongs;base:tongs] mode:keep flags[MayDegradeLight],
-            item 2 tags[base:charcoal],
-            item 10 TLC_ItemsAndEdits.ClayShotgunMold mode:destroy
-        }
-        outputs
-        {
-            item 10 TLC_ItemsAndEdits.ShotgunMold,
-        }
-    }
-
     craftRecipe 9mmBulletsCasing
     {
         time = 120,
+        SkillRequired = Blacksmith:10,
+        Tags = Furnace,
+        category = Blacksmithing,
         inputs
         {
             item 1 [Base.CeramicCrucible_Iron;Base.CeramicCrucibleSmall_Iron],
             item 1 tags[base:crudetongs;base:tongs] mode:keep flags[MayDegradeLight],
             item 2 tags[base:charcoal],
-            item 1 TLC_ItemsAndEdits.BulletMold mode:keep
+            item 1 [TLC_ItemsAndEdits.ClayBulletMold] mode:keep
         }
         outputs
         {
@@ -171,12 +136,15 @@ module Base
     craftRecipe 45BulletsCasing
     {
         time = 120,
+        SkillRequired = Blacksmith:10,
+        Tags = Furnace,
+        category = Blacksmithing,
         inputs
         {
             item 1 [Base.CeramicCrucible_Iron;Base.CeramicCrucibleSmall_Iron],
             item 1 tags[base:crudetongs;base:tongs] mode:keep flags[MayDegradeLight],
             item 2 tags[base:charcoal],
-            item 1 TLC_ItemsAndEdits.BulletMold mode:keep
+            item 1 [TLC_ItemsAndEdits.ClayBulletMold] mode:keep
         }
         outputs
         {
@@ -184,15 +152,75 @@ module Base
         }
     }
 
-    craftRecipe 556BulletsCasing
+    craftRecipe 357BulletsCasing
     {
         time = 120,
+        SkillRequired = Blacksmith:10,
+        Tags = Furnace,
+        category = Blacksmithing,
         inputs
         {
             item 1 [Base.CeramicCrucible_Iron;Base.CeramicCrucibleSmall_Iron],
             item 1 tags[base:crudetongs;base:tongs] mode:keep flags[MayDegradeLight],
             item 2 tags[base:charcoal],
-            item 1 TLC_ItemsAndEdits.BulletMold mode:keep
+            item 1 [TLC_ItemsAndEdits.ClayBulletMold] mode:keep
+        }
+        outputs
+        {
+            item 1 TLC_ItemsAndEdits.357BulletCasing,
+        }
+    }
+
+    craftRecipe 44BulletsCasing
+    {
+        time = 120,
+        SkillRequired = Blacksmith:10,
+        Tags = Furnace,
+        category = Blacksmithing,
+        inputs
+        {
+            item 1 [Base.CeramicCrucible_Iron;Base.CeramicCrucibleSmall_Iron],
+            item 1 tags[base:crudetongs;base:tongs] mode:keep flags[MayDegradeLight],
+            item 2 tags[base:charcoal],
+            item 1 [TLC_ItemsAndEdits.ClayBulletMold] mode:keep
+        }
+        outputs
+        {
+            item 1 TLC_ItemsAndEdits.44BulletCasing,
+        }
+    }
+
+    craftRecipe 38BulletsCasing
+    {
+        time = 120,
+        SkillRequired = Blacksmith:10,
+        Tags = Furnace,
+        category = Blacksmithing,
+        inputs
+        {
+            item 1 [Base.CeramicCrucible_Iron;Base.CeramicCrucibleSmall_Iron],
+            item 1 tags[base:crudetongs;base:tongs] mode:keep flags[MayDegradeLight],
+            item 2 tags[base:charcoal],
+            item 1 [TLC_ItemsAndEdits.ClayBulletMold] mode:keep
+        }
+        outputs
+        {
+            item 1 TLC_ItemsAndEdits.38BulletCasing,
+        }
+    }
+
+    craftRecipe 556BulletsCasing
+    {
+        time = 120,
+        SkillRequired = Blacksmith:10,
+        Tags = Furnace,
+        category = Blacksmithing,
+        inputs
+        {
+            item 1 [Base.CeramicCrucible_Iron;Base.CeramicCrucibleSmall_Iron],
+            item 1 tags[base:crudetongs;base:tongs] mode:keep flags[MayDegradeLight],
+            item 2 tags[base:charcoal],
+            item 1 [TLC_ItemsAndEdits.ClayBulletMold] mode:keep
         }
         outputs
         {
@@ -203,12 +231,15 @@ module Base
     craftRecipe 308BulletsCasing
     {
         time = 120,
+        SkillRequired = Blacksmith:10,
+        Tags = Furnace,
+        category = Blacksmithing,
         inputs
         {
             item 1 [Base.CeramicCrucible_Iron;Base.CeramicCrucibleSmall_Iron],
             item 1 tags[base:crudetongs;base:tongs] mode:keep flags[MayDegradeLight],
             item 2 tags[base:charcoal],
-            item 1 TLC_ItemsAndEdits.BulletMold mode:keep
+            item 1 [TLC_ItemsAndEdits.ClayBulletMold] mode:keep,
         }
         outputs
         {
@@ -216,47 +247,53 @@ module Base
         }
     }
 
-    craftRecipe CastShotgunShells
+    craftRecipe 3030BulletsCasing
     {
         time = 120,
+        SkillRequired = Blacksmith:10,
+        Tags = Furnace,
+        category = Blacksmithing,
         inputs
         {
             item 1 [Base.CeramicCrucible_Iron;Base.CeramicCrucibleSmall_Iron],
             item 1 tags[base:crudetongs;base:tongs] mode:keep flags[MayDegradeLight],
             item 2 tags[base:charcoal],
-            item 1 TLC_ItemsAndEdits.ShotgunMold mode:keep
+            item 1 [TLC_ItemsAndEdits.ClayBulletMold] mode:keep
         }
         outputs
         {
-            item 1 TLC_ItemsAndEdits.CastShotgunShell,
+            item 1 TLC_ItemsAndEdits.3030BulletCasing,
+        }
+    }
+
+    craftRecipe ShotgunShellsCasing
+    {
+        time = 120,
+        SkillRequired = Blacksmith:10,
+        Tags = Furnace,
+        category = Blacksmithing,
+        inputs
+        {
+            item 1 [Base.CeramicCrucible_Iron;Base.CeramicCrucibleSmall_Iron],
+            item 1 tags[base:crudetongs;base:tongs] mode:keep flags[MayDegradeLight],
+            item 2 tags[base:charcoal],
+            item 1 [TLC_ItemsAndEdits.ClayShotgunMold] mode:keep
+        }
+        outputs
+        {
+            item 1 TLC_ItemsAndEdits.ShotgunShellCasing,
         }
     }
 
     craftRecipe Load9mmBullets
     {
         time = 200,
-        Tags = Furnace,
-        category = Blacksmithing,
+        Tags = InHandCraft,
+        category = Weaponry,
         inputs
         {
-            item 1 TLC_ItemsAndEdits.Cast9mmBullet mode:destroy,
-            item 1 [Base.GunPowder] mode:destroy,
-            item 4 tags[base:charcoal],
-        }
-        outputs
-        {
-            item 1 Base.Bullets9mm,
-        }
-    }
-
-
-    craftRecipe Load9mmBullets
-    {
-        time = 60,
-        inputs
-        {
-            item 1 TLC_ItemsAndEdits.Cast9mmBullet mode:destroy,
-            item 1 [Base.GunPowder] mode:destroy,
+            item 1 [TLC_ItemsAndEdits.9mmBulletCasing] mode:destroy,
+            item 1 [Base.GunPowder],
         }
         outputs
         {
@@ -266,11 +303,13 @@ module Base
 
     craftRecipe Load45Bullets
     {
-        time = 60,
+        time = 200,
+        Tags = InHandCraft,
+        category = Weaponry,
         inputs
         {
-            item 1 TLC_ItemsAndEdits.Cast45Bullet mode:destroy,
-            item 1 [Base.GunPowder] mode:destroy,
+            item 1 [TLC_ItemsAndEdits.45BulletCasing] mode:destroy,
+            item 1 [Base.GunPowder],
         }
         outputs
         {
@@ -278,13 +317,32 @@ module Base
         }
     }
 
-    craftRecipe Load556Bullets
+    craftRecipe Load76239Bullets
     {
-        time = 60,
+        time = 200,
+        Tags = InHandCraft,
+        category = Weaponry,
         inputs
         {
-            item 1 TLC_ItemsAndEdits.Cast556Bullet mode:destroy,
-            item 1 [Base.GunPowder] mode:destroy,
+            item 1 [TLC_ItemsAndEdits.762BulletCasing] mode:destroy,
+            item 1 [Base.GunPowder],
+        }
+        outputs
+        {
+            item 1 Base.762Bullets,
+        }
+    }
+
+
+    craftRecipe Load556Bullets
+    {
+        time = 200,
+        Tags = InHandCraft,
+        category = Weaponry,
+        inputs
+        {
+            item 1 [TLC_ItemsAndEdits.556BulletCasing] mode:destroy,
+            item 1 [Base.GunPowder],
         }
         outputs
         {
@@ -292,13 +350,63 @@ module Base
         }
     }
 
-    craftRecipe Load308Bullets
+    craftRecipe Load357Bullets
     {
-        time = 60,
+        time = 200,
+        Tags = InHandCraft,
+        category = Weaponry,
         inputs
         {
-            item 1 TLC_ItemsAndEdits.Cast308Bullet mode:destroy,
-            item 1 [Base.GunPowder] mode:destroy,
+            item 1 [TLC_ItemsAndEdits.357BulletCasing] mode:destroy,
+            item 1 [Base.GunPowder],
+        }
+        outputs
+        {
+            item 1 Base.Bullets357,
+        }
+    }
+
+    craftRecipe Load44Bullets
+    {
+        time = 200,
+        Tags = InHandCraft,
+        category = Weaponry,
+        inputs
+        {
+            item 1 [TLC_ItemsAndEdits.44BulletCasing] mode:destroy,
+            item 1 [Base.GunPowder],
+        }
+        outputs
+        {
+            item 1 Base.Bullets44,
+        }
+    }
+
+    craftRecipe Load38Bullets
+    {
+        time = 200,
+        Tags = InHandCraft,
+        category = Weaponry,
+        inputs
+        {
+            item 1 [TLC_ItemsAndEdits.38BulletCasing] mode:destroy,
+            item 1 [Base.GunPowder],
+        }
+        outputs
+        {
+            item 1 Base.Bullets38,
+        }
+    }
+
+    craftRecipe Load308Bullets
+    {
+        time = 200,
+        Tags = InHandCraft,
+        category = Weaponry,
+        inputs
+        {
+            item 1 [TLC_ItemsAndEdits.308BulletCasing] mode:destroy,
+            item 1 [Base.GunPowder],
         }
         outputs
         {
@@ -306,13 +414,31 @@ module Base
         }
     }
 
-    craftRecipe LoadShotgunShells
+    craftRecipe Load3030Bullets
     {
-        time = 60,
+        time = 200,
+        Tags = InHandCraft,
+        category = Weaponry,
         inputs
         {
-            item 1 TLC_ItemsAndEdits.CastShotgunShell mode:destroy,
-            item 1 [Base.GunPowder] mode:destroy,
+            item 1 [TLC_ItemsAndEdits.3030BulletCasing] mode:destroy,
+            item 1 [Base.GunPowder],
+        }
+        outputs
+        {
+            item 1 Base.3030Bullets,
+        }
+    }
+
+    craftRecipe LoadShotgunShells
+    {
+        time = 200,
+        Tags = InHandCraft,
+        category = Weaponry,
+        inputs
+        {
+            item 1 [TLC_ItemsAndEdits.ShotgunShellCasing] mode:destroy,
+            item 1 [Base.GunPowder],
         }
         outputs
         {

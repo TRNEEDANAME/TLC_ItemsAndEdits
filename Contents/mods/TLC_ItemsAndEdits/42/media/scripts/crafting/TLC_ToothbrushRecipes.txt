@@ -19,4 +19,52 @@ module Base
             item 1 Base.Toothbrush,
         }
     }
+
+    craftRecipe SliceMeatStrips
+    {
+        timedAction = SliceMeat_Surface,
+        time = 50,
+        Tags = AnySurfaceCraft;Cooking,
+        category = Cooking,
+        xpAward = Cooking:3,
+        inputs
+        {
+            item 1 tags[base:sharpknife;base:meatcleaver] mode:keep flags[SharpnessCheck],
+            item 1 [Base.Beef;Base.Steak;VFX.BeefBrisket;VFX.BeefShank;VFX.BeefShortRibs;Base.MuttonChop;VFX.LambLeg;Base.Chicken;Base.ChickenWings;Base.ChickenFillet;VFX.ChickenThighs;VFX.ChickenDrumsticks;Base.Pork;Base.PorkChop;VFX.PorkRibs;VFX.PorkBelly;Base.TurkeyLegs;Base.TurkeyWings;Base.TurkeyFillet;Base.Rabbitmeat;Base.Smallanimalmeat;Base.Venison;Base.Salmon;Base.FrogMeat;Base.FishFillet;Base.Smallbirdmeat] mappers[meatType] flags[InheritFoodAge;InheritWeight;IsUncookedFoodItem;IsExclusive],
+        }
+        outputs
+        {
+            item 6 TLC_ItemsAndEdits.MeatStrips,
+        }
+
+        itemMapper meatType
+		{
+			Base.MincedMeat = Base.Beef,
+			Base.MincedMeat = Base.Steak,
+			Base.MincedMeat = VFX.BeefBrisket,
+			Base.MincedMeat = VFX.BeefShank,
+			Base.MincedMeat = VFX.BeefShortRibs,
+			VFX.GroundLamb = Base.MuttonChop,
+			VFX.GroundLamb = VFX.LambLeg,
+			VFX.GroundChicken = Base.Chicken,
+			VFX.GroundChicken = Base.ChickenWings,
+			VFX.GroundChicken = Base.ChickenFillet,
+            VFX.GroundChicken = VFX.ChickenThighs,
+            VFX.GroundChicken = VFX.ChickenDrumsticks,
+			VFX.GroundPork = Base.Pork,
+			VFX.GroundPork = Base.PorkChop,
+			VFX.GroundPork = VFX.PorkRibs,
+			VFX.GroundPork = VFX.PorkBelly,
+			VFX.GroundTurkey = Base.TurkeyLegs,
+			VFX.GroundTurkey = Base.TurkeyWings,
+			VFX.GroundTurkey = Base.TurkeyFillet,
+			VFX.GroundRabbit = Base.Rabbitmeat,
+			VFX.GroundRodent = Base.Smallanimalmeat,
+			VFX.GroundVenison = Base.Venison,
+			VFX.GroundSalmon = Base.Salmon,
+			VFX.GroundFrog = Base.FrogMeat,
+			VFX.GroundFish = Base.FishFillet,
+			VFX.GroundSmallBird = Base.Smallbirdmeat,
+		}
+    }
 }

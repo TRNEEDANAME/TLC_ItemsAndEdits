@@ -2,69 +2,127 @@ module TLC_ItemsAndEdits
 {
     item WoodenBulletMold
     {
-        Type = Normal,
-        DisplayName = Wooden Bullet Mold,
+        DisplayCategory = Material,
         Weight = 0.3,
+        ItemType = base:normal,
+        Icon = WoodMold_LonbBarCast,
+        StaticModel = ShotGunShellsMold_Ground,
+        WorldStaticModel = ShotGunShellsMold_Ground,
     }
 
     item WoodenShotgunMold
     {
-        Type = Normal,
-        DisplayName = Wooden Shotgun Shell Mold,
+        DisplayCategory = Material,
         Weight = 0.3,
+        ItemType = base:normal,
+        Icon = WoodMold_LonbBarCast,
+        StaticModel = ShotGunShellsMold_Ground,
+        WorldStaticModel = ShotGunShellsMold_Ground,
     }
 
     item ClayBulletMoldUnfired
     {
-        Type = Normal,
-        DisplayName = Unfired Clay Bullet Mold,
+        DisplayCategory = Material,
         Weight = 0.1,
+        ItemType = base:normal,
+        Icon = CeramicCast_LongBar_Unfired,
+        StaticModel = ClayBarStockMoldUnfired,
+        WorldStaticModel = ClayBarStockMoldUnfired,
     }
 
     item ClayShotgunMoldUnfired
     {
-        Type = Normal,
-        DisplayName = Unfired Clay Shotgun Shell Mold,
+        DisplayCategory = Material,
         Weight = 0.1,
+        ItemType = base:normal,
+        Icon = CeramicCast_LongBar_Unfired,
+        StaticModel = ClayBarStockMoldUnfired,
+        WorldStaticModel = ClayBarStockMoldUnfired,
     }
 
     item ClayBulletMold
     {
-        Type = Normal,
-        DisplayName = Fired Clay Bullet Mold,
+        DisplayCategory = Material,
         Weight = 0.1,
+        ItemType = base:normal,
+        Icon = CeramicCast_LongBar_Fired,
+        StaticModel = ClayBarStockMold,
+        WorldStaticModel = ClayBarStockMold,
+        Tags = base:destructible;base:breakonsmithing,
+        Tooltip = Tooltip_item_BreakOnSmithing,
     }
 
     item ClayShotgunMold
     {
-        Type = Normal,
-        DisplayName = Fired Clay Shotgun Shell Mold,
+        DisplayCategory = Material,
         Weight = 0.1,
+        ItemType = base:normal,
+        Icon = CeramicCast_LongBar_Fired,
+        StaticModel = ClayBarStockMold,
+        WorldStaticModel = ClayBarStockMold,
+        Tooltip = Tooltip_item_BreakOnSmithing,
+        Tooltip = Tooltip_item_BreakOnSmithing,
     }
 
-    model ShotGunShellsMold_Ground
+    item 556BulletCasing
     {
-        mesh = WorldItems/ShotGunShellstMold,
-        texture = WorldItems/ShotgunShellsMold,
-        scale = 0.4,
+        DisplayCategory = Ammo,
+        ItemType = base:normal,
+        Weight = 0.03,
+        Icon = RifleAmmo308loose,
+        count = 3,
+        MetalValue = 1.0,
+        WorldStaticModel = RifleAmmo,
+        Tags = base:normal,
     }
 
-    item BulletMold
+    item 308BulletCasing
     {
-        Type = Normal,
-        DisplayName = Bullet Mold,
-        StaticModel = ShotGunShellsMold_Ground,
-        WorldStaticModel = ShotGunShellsMold_Ground,
-        Weight = 0.5,
+        DisplayCategory = Ammo,
+        ItemType = base:normal,
+        Weight = 0.03,
+        Icon = RifleAmmo308loose,
+        count = 3,
+        MetalValue = 1.0,
+        WorldStaticModel = RifleAmmo,
+        Tags = base:normal,
     }
 
-    item ShotgunMold
+    item 762BulletCasing
     {
-        Type = Normal,
-        DisplayName = Shotgun Shell Mold,
-        StaticModel = ShotGunShellsMold_Ground,
-        WorldStaticModel = ShotGunShellsMold_Ground,
-        Weight = 0.5,
+        DisplayCategory = Ammo,
+        ItemType = base:normal,
+        Weight = 0.03,
+        Icon = 762BulletsLoose,
+        count = 3,
+        MetalValue = 1.0,
+        WorldStaticModel = 762RifleAmmo,
+        Tags = base:normal,
+    }
+
+
+    item 3030BulletCasing
+    {
+        DisplayCategory = Ammo,
+        ItemType = base:normal,
+        Weight = 0.03,
+        Icon = RifleAmmo308loose,
+        count = 3,
+        MetalValue = 1.0,
+        WorldStaticModel = RifleAmmo,
+        Tags = base:normal,
+    }
+
+    item ShotgunShellCasing
+    {
+        DisplayCategory = Ammo,
+        ItemType = base:normal,
+        Weight = 0.03,
+        Icon = ShotgunAmmo,
+        count = 3,
+        MetalValue = 1.0,
+        WorldStaticModel = ShotGunShells,
+        Tags = base:normal,
     }
 
     item 9mmBulletCasing
@@ -91,7 +149,31 @@ module TLC_ItemsAndEdits
         Tags = base:normal,
     }
 
-    item 556BulletCasing
+    item 357BulletCasing
+    {
+        DisplayCategory = Ammo,
+        ItemType = base:normal,
+        Weight = 0.03,
+        Icon = PistolAmmo,
+        count = 3,
+        MetalValue = 1.0,
+        WorldStaticModel = 38SpecialBullets,
+        Tags = base:normal,
+    }
+
+    item 38BulletCasing
+    {
+        DisplayCategory = Ammo,
+        ItemType = base:normal,
+        Weight = 0.03,
+        Icon = PistolAmmo,
+        count = 3,
+        MetalValue = 1.0,
+        WorldStaticModel = 38SpecialBullets,
+        Tags = base:normal,
+    }
+
+    item 44BulletCasing
     {
         DisplayCategory = Ammo,
         ItemType = base:normal,
@@ -101,38 +183,5 @@ module TLC_ItemsAndEdits
         MetalValue = 1.0,
         WorldStaticModel = 9mmRounds,
         Tags = base:normal,
-    }
-
-    item 308BulletCasing
-    {
-        DisplayCategory = Ammo,
-        ItemType = base:normal,
-        Weight = 0.03,
-        Icon = PistolAmmo,
-        count = 3,
-        MetalValue = 1.0,
-        WorldStaticModel = 9mmRounds,
-        Tags = base:normal,
-    }
-
-    item ShotgunShellCasing
-    {
-        DisplayCategory = Ammo,
-        ItemType = base:normal,
-        Weight = 0.03,
-        Icon = PistolAmmo,
-        count = 3,
-        MetalValue = 1.0,
-        WorldStaticModel = ShotGunShells,
-        Tags = base:normal,
-    }
-
-    item CastShotgunShell
-    {
-        Type = Normal,
-        DisplayName = Cast Shotgun Shell,
-        StaticModel = WorldItems/Cast_Bar_Metal,
-        WorldStaticModel = 9mmRounds,
-        Weight = 0.06,
     }
 }
