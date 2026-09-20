@@ -126,7 +126,7 @@ local function handleWoundCommand(player, argString, commandArguments)
 end
 
 local function registerMongooseWoundCommand()
-	local ok, mongooseServer = pcall(require, "MC_Server")
+	local ok, mongooseServer = require, "MC_Server"
 	if not ok or type(mongooseServer) ~= "table"
 		or type(mongooseServer._SlashHandlers) ~= "table" then
 		return false

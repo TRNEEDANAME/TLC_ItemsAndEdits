@@ -1,5 +1,5 @@
 local function registerMongooseWoundCommand()
-	local ok, mongooseCore = pcall(require, "MC_Core")
+	local ok, mongooseCore = require, "MC_Core"
 	if not ok or type(mongooseCore) ~= "table"
 		or type(mongooseCore.SERVER_SLASH_COMMANDS) ~= "table" then
 		return false
