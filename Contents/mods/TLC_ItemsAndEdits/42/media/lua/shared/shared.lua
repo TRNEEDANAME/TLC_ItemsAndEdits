@@ -1,7 +1,48 @@
 local DurabilityAdjusted = false
 
+TLC_ItemsAndEdits = TLC_ItemsAndEdits or {}
+
+TLC_ItemsAndEdits.WoundBodyParts = {
+    Head = "Head",
+    Neck = "Neck",
+    Groin = "Groin",
+    TorsoUpper = "Torso_Upper",
+    TorsoLower = "Torso_Lower",
+    UpperTorso = "Torso_Upper",
+    LowerTorso = "Torso_Lower",
+    LeftUpperArm = "UpperArm_L",
+    RightUpperArm = "UpperArm_R",
+    LeftForearm = "ForeArm_L",
+    RightForearm = "ForeArm_R",
+    LeftHand = "Hand_L",
+    RightHand = "Hand_R",
+    LeftThigh = "UpperLeg_L",
+    RightThigh = "UpperLeg_R",
+    LeftShin = "LowerLeg_L",
+    RightShin = "LowerLeg_R",
+    LeftFoot = "Foot_L",
+    RightFoot = "Foot_R",
+}
+
+TLC_ItemsAndEdits.WoundTypes = {
+    Bleeding = "bleeding",
+    Burn = "burn",
+    Bullet = "bullet",
+    DeepWound = "deepWound",
+    Fracture = "fracture",
+    GlassShard = "glass",
+    Laceration = "cut",
+    Scratch = "scratch",
+}
+
+function TLC_ItemsAndEdits.GetWoundDuration(baseDuration)
+    local settings = SandboxVars and SandboxVars.TLC_ItemsAndEdits
+    local multiplier = settings and settings.WoundDurationMultiplier or 1
+    return baseDuration * multiplier
+end
+
 local function debugPrint(...)
-    local settings = SandboxVars and SandboxVars.TLCItemEdits
+    local settings = SandboxVars and SandboxVars.TLC_ItemsAndEdits
 
     if settings and settings.Debug then
         print(...)

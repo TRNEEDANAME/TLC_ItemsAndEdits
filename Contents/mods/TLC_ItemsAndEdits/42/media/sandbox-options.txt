@@ -1,9 +1,17 @@
 VERSION = 1,
 
-option TLCItemEdits.Debug
+option TLC_ItemsAndEdits.Debug
 {
     type = boolean,
     default = false,
-    page = TLCItemEdits,
-    translation = TLCItemEdits_Debug,
+    page = TLC_ItemsAndEdits,
+    translation = TLC_ItemsAndEdits_Debug,
+}
+
+option TLC_ItemsAndEdits.WoundDurationMultiplier {
+	type = integer,
+	default = 1,
+	min = 1,
+	max = 10,
+	page = TLC_ItemsAndEdits,
 }

@@ -1,0 +1,187 @@
+module TLC_ItemsAndEdits
+{
+    item WoodenBulletMold
+    {
+        DisplayCategory = Material,
+        Weight = 0.3,
+        ItemType = base:normal,
+        Icon = WoodMold_LonbBarCast,
+        StaticModel = ShotGunShellsMold_Ground,
+        WorldStaticModel = ShotGunShellsMold_Ground,
+    }
+
+    item WoodenShotgunMold
+    {
+        DisplayCategory = Material,
+        Weight = 0.3,
+        ItemType = base:normal,
+        Icon = WoodMold_LonbBarCast,
+        StaticModel = ShotGunShellsMold_Ground,
+        WorldStaticModel = ShotGunShellsMold_Ground,
+    }
+
+    item ClayBulletMoldUnfired
+    {
+        DisplayCategory = Material,
+        Weight = 0.1,
+        ItemType = base:normal,
+        Icon = CeramicCast_LongBar_Unfired,
+        StaticModel = ClayBarStockMoldUnfired,
+        WorldStaticModel = ClayBarStockMoldUnfired,
+    }
+
+    item ClayShotgunMoldUnfired
+    {
+        DisplayCategory = Material,
+        Weight = 0.1,
+        ItemType = base:normal,
+        Icon = CeramicCast_LongBar_Unfired,
+        StaticModel = ClayBarStockMoldUnfired,
+        WorldStaticModel = ClayBarStockMoldUnfired,
+    }
+
+    item ClayBulletMold
+    {
+        DisplayCategory = Material,
+        Weight = 0.1,
+        ItemType = base:normal,
+        Icon = CeramicCast_LongBar_Fired,
+        StaticModel = ClayBarStockMold,
+        WorldStaticModel = ClayBarStockMold,
+        Tags = base:destructible;base:breakonsmithing,
+        Tooltip = Tooltip_item_BreakOnSmithing,
+    }
+
+    item ClayShotgunMold
+    {
+        DisplayCategory = Material,
+        Weight = 0.1,
+        ItemType = base:normal,
+        Icon = CeramicCast_LongBar_Fired,
+        StaticModel = ClayBarStockMold,
+        WorldStaticModel = ClayBarStockMold,
+        Tooltip = Tooltip_item_BreakOnSmithing,
+        Tooltip = Tooltip_item_BreakOnSmithing,
+    }
+
+    item 556BulletCasing
+    {
+        DisplayCategory = Ammo,
+        ItemType = base:normal,
+        Weight = 0.03,
+        Icon = RifleAmmo308loose,
+        count = 3,
+        MetalValue = 1.0,
+        WorldStaticModel = RifleAmmo,
+        Tags = base:normal,
+    }
+
+    item 308BulletCasing
+    {
+        DisplayCategory = Ammo,
+        ItemType = base:normal,
+        Weight = 0.03,
+        Icon = RifleAmmo308loose,
+        count = 3,
+        MetalValue = 1.0,
+        WorldStaticModel = RifleAmmo,
+        Tags = base:normal,
+    }
+
+    item 762BulletCasing
+    {
+        DisplayCategory = Ammo,
+        ItemType = base:normal,
+        Weight = 0.03,
+        Icon = 762BulletsLoose,
+        count = 3,
+        MetalValue = 1.0,
+        WorldStaticModel = 762RifleAmmo,
+        Tags = base:normal,
+    }
+
+
+    item 3030BulletCasing
+    {
+        DisplayCategory = Ammo,
+        ItemType = base:normal,
+        Weight = 0.03,
+        Icon = RifleAmmo308loose,
+        count = 3,
+        MetalValue = 1.0,
+        WorldStaticModel = RifleAmmo,
+        Tags = base:normal,
+    }
+
+    item ShotgunShellCasing
+    {
+        DisplayCategory = Ammo,
+        ItemType = base:normal,
+        Weight = 0.03,
+        Icon = ShotgunAmmo,
+        count = 3,
+        MetalValue = 1.0,
+        WorldStaticModel = ShotGunShells,
+        Tags = base:normal,
+    }
+
+    item 9mmBulletCasing
+    {
+        DisplayCategory = Ammo,
+        ItemType = base:normal,
+        Weight = 0.03,
+        Icon = PistolAmmo,
+        count = 3,
+        MetalValue = 1.0,
+        WorldStaticModel = 9mmRounds,
+        Tags = base:normal,
+    }
+
+    item 45BulletCasing
+    {
+        DisplayCategory = Ammo,
+        ItemType = base:normal,
+        Weight = 0.03,
+        Icon = PistolAmmo,
+        count = 3,
+        MetalValue = 1.0,
+        WorldStaticModel = 9mmRounds,
+        Tags = base:normal,
+    }
+
+    item 357BulletCasing
+    {
+        DisplayCategory = Ammo,
+        ItemType = base:normal,
+        Weight = 0.03,
+        Icon = PistolAmmo,
+        count = 3,
+        MetalValue = 1.0,
+        WorldStaticModel = 38SpecialBullets,
+        Tags = base:normal,
+    }
+
+    item 38BulletCasing
+    {
+        DisplayCategory = Ammo,
+        ItemType = base:normal,
+        Weight = 0.03,
+        Icon = PistolAmmo,
+        count = 3,
+        MetalValue = 1.0,
+        WorldStaticModel = 38SpecialBullets,
+        Tags = base:normal,
+    }
+
+    item 44BulletCasing
+    {
+        DisplayCategory = Ammo,
+        ItemType = base:normal,
+        Weight = 0.03,
+        Icon = PistolAmmo,
+        count = 3,
+        MetalValue = 1.0,
+        WorldStaticModel = 9mmRounds,
+        Tags = base:normal,
+    }
+}

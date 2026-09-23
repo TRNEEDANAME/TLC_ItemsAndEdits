@@ -1,0 +1,26 @@
+module TLC_ItemsAndEdits
+{
+    item MeatStrips
+    {
+        DisplayCategory = Food,
+        EatType = EatOffStick,
+        ItemType = base:food,
+        Weight = 0.3,
+        Icon = DehydratedMeatStick,
+        IsCookable = true,
+        ReplaceOnCooked = Base.DehydratedMeatStick,
+        MinutesToCook = 60,
+        DaysFresh = 3,
+        DaysTotallyRotten = 6,
+        HungerChange = -5.0,
+        ThirstChange = 15.0,
+        UnhappyChange = 10,
+        Calories = 200.0,
+        Carbohydrates = 99.0,
+        Lipids = 6.66,
+        Proteins = 50.7,
+        StaticModel = DehydratedMeatStick_Ground,
+        WorldStaticModel = DehydratedMeatStick_Ground,
+    }
+
+}

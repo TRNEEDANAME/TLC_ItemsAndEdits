@@ -1,5 +1,5 @@
 {
-    "Sandbox_TLCItemEdits": "TLC Items and Edits",
-    "Sandbox_TLCItemEdits_Debug": "Enable Debug Logging",
-    "Sandbox_TLCItemEdits_Debug_tooltip": "Print TLC Items and Edits diagnostic messages to the console."
+    "Sandbox_TLC_ItemsAndEdits": "TLC Items and Edits",
+    "Sandbox_TLC_ItemsAndEdits_Debug": "Enable Debug Logging",
+    "Sandbox_WoundDurationMultiplier" : "Wound Duration Multiplier"
 }
