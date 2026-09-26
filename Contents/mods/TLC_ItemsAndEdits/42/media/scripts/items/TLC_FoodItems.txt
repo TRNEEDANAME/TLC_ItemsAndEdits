@@ -1,0 +1,92 @@
+module TLC_ItemsAndEdits
+{
+    item HardtackDoughSalted
+    {
+        DisplayCategory = Food,
+        ItemType = base:food,
+        Weight = 0.2,
+        Icon = Dough,
+        IsCookable = true,
+        ReplaceOnCooked = TLC_ItemsAndEdits.HardtackSalted,
+        RemoveNegativeEffectOnCooked = true,
+        MinutesToCook = 360,
+        MinutesToBurn = 520,
+        DaysFresh = 3,
+        DaysTotallyRotten = 6,
+        HungerChange = -8.0,
+        ThirstChange = 5.0,
+        UnhappyChange = 10,
+        Calories = 130.0,
+        Carbohydrates = 27.0,
+        Lipids = 0.5,
+        Proteins = 4.0,
+        StaticModel = BreadDough,
+        WorldStaticModel = BreadDough,
+    }
+
+    item HardtackSalted
+    {
+        DisplayCategory = Food,
+        ItemType = base:food,
+        Weight = 0.1,
+        Icon = Crackers,
+        FoodType = NoExplicit,
+        EvolvedRecipe = Soup:5;Stew:5,
+        HungerChange = -8.0,
+        ThirstChange = 5.0,
+        UnhappyChange = 5,
+        BoredomChange = 5,
+        Calories = 130.0,
+        Carbohydrates = 27.0,
+        Lipids = 0.5,
+        Proteins = 4.0,
+        CustomEatSound = EatingCrispy,
+        StaticModel = Crackers_Hand,
+        WorldStaticModel = Crackers_Ground,
+    }
+
+    item HardtackDough
+    {
+        DisplayCategory = Food,
+        ItemType = base:food,
+        Weight = 0.2,
+        Icon = Dough,
+        IsCookable = true,
+        ReplaceOnCooked = TLC_ItemsAndEdits.Hardtack,
+        RemoveNegativeEffectOnCooked = true,
+        MinutesToCook = 360,
+        MinutesToBurn = 520,
+        DaysFresh = 3,
+        DaysTotallyRotten = 6,
+        HungerChange = -8.0,
+        ThirstChange = 5.0,
+        UnhappyChange = 10,
+        Calories = 130.0,
+        Carbohydrates = 27.0,
+        Lipids = 0.5,
+        Proteins = 4.0,
+        StaticModel = BreadDough,
+        WorldStaticModel = BreadDough,
+    }
+
+    item Hardtack
+    {
+        DisplayCategory = Food,
+        ItemType = base:food,
+        Weight = 0.1,
+        Icon = Crackers,
+        FoodType = NoExplicit,
+        EvolvedRecipe = Soup:5;Stew:5,
+        HungerChange = -8.0,
+        ThirstChange = 5.0,
+        UnhappyChange = 10,
+        BoredomChange = 10,
+        Calories = 130.0,
+        Carbohydrates = 27.0,
+        Lipids = 0.5,
+        Proteins = 4.0,
+        CustomEatSound = EatingCrispy,
+        StaticModel = Crackers_Hand,
+        WorldStaticModel = Crackers_Ground,
+    }
+}

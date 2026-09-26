@@ -1,0 +1,45 @@
+module Base
+{
+    craftRecipe MakeHardtackDoughSalted
+    {
+        timedAction = MixingBowl,
+        time = 50,
+        category = Cooking,
+        Tags = AnySurfaceCraft;Cooking,
+        xpAward = Cooking:5,
+        inputs
+        {
+            item 1 tags[base:mixingutensil] mode:keep flags[MayDegradeVeryLight],
+            item 1 [Base.Bowl;Base.ClayBowl] mode:keep,
+            item 10 tags[base:flour],
+            item 1 [Base.Salt;Base.SeasoningSalt],
+            item 1 [*],
+            -fluid 1.0 [Water],
+        }
+        outputs
+        {
+            item 4 TLC_ItemsAndEdits.HardtackDoughSalted,
+        }
+    }
+
+    craftRecipe MakeHardtackDough
+    {
+        timedAction = MixingBowl,
+        time = 50,
+        category = Cooking,
+        Tags = AnySurfaceCraft;Cooking,
+        xpAward = Cooking:5,
+        inputs
+        {
+            item 1 tags[base:mixingutensil] mode:keep flags[MayDegradeVeryLight],
+            item 1 [Base.Bowl;Base.ClayBowl] mode:keep,
+            item 10 tags[base:flour],
+            item 1 [*],
+            -fluid 1.0 [Water],
+        }
+        outputs
+        {
+            item 4 TLC_ItemsAndEdits.HardtackDough,
+        }
+    }
+}

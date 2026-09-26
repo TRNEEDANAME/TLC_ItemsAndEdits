@@ -29,10 +29,22 @@ function ClientCommands.requestPaste(data, x, y, z)
     end
 end
 
+function ClientCommands.requestUndo()
+    if not Util.isAdmin(getPlayer()) then return end
+
+    if isClient() then
+        sendClientCommand(getPlayer(), "TileCopy", "undo", {})
+    else
+        Core.undoLast()
+    end
+end
+
 local function onServerCommand(module, command, args)
     if module ~= "TileCopy" then return end
-    if command == "paste" and args and args.data then
-        Core.applyArea(args.data, args.x, args.y, args.z)
+    -- The server already placed/removed the objects and synced them to
+    -- every client, so these are just confirmations - never re-apply here.
+    if command == "pasted" or command == "undone" then
+        Util.log("server confirmed", command)
     elseif command == "denied" then
         if getPlayer() then
             getPlayer():Say("Tile Copy: server rejected that paste (admin check failed).")

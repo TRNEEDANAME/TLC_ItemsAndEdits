@@ -1,7 +1,5 @@
 --[[
     ISTileCopyTool.lua  (client)
-
-    Full-screen transparent ISUIElement that:
       - lets the admin drag out a rectangle on the ground (same idea as the
         vanilla "claim safehouse" blue square) to pick the copy area
       - shows a live WxH label while dragging
@@ -18,28 +16,43 @@ ISTileCopyTool.instance = nil
 local Util = TileCopy.Util
 local Core = TileCopy.Core
 
-local TILE_W, TILE_H = 64, 32 -- only used as a fallback box size if conversion fails
+local TILE_W, TILE_H = 64, 32 -- used for positioning the size label
+
+local function clearHighlights(appliedSquares)
+    local cell = getCell()
+    if not cell then return end
+
+    for key in pairs(appliedSquares) do
+        local x, y, z = key:match("^(%-?%d+),(%-?%d+),(%-?%d+)$")
+        if x and y and z then
+            local square = cell:getGridSquare(tonumber(x), tonumber(y), tonumber(z))
+            if square then
+                if square.setHighlight then square:setHighlight(false) end
+                local floor = square:getFloor()
+                if floor and floor.setHighlighted then floor:setHighlighted(false) end
+            end
+        end
+        appliedSquares[key] = nil
+    end
+end
 
 local function worldToScreen(x, y, z)
     local player = getPlayer()
     if not player then return nil, nil end
-    local ok, sx, sy = pcall(function()
-        return isoToScreenX(player, x, y, z), isoToScreenY(player, x, y, z)
-    end)
-    if ok then return sx, sy end
-    return nil, nil
+    local playerNum = player:getPlayerNum()
+    return isoToScreenX(playerNum, x, y, z), isoToScreenY(playerNum, x, y, z)
 end
 
 local function screenToWorld(mx, my, z)
-    local ok, wx, wy = pcall(function()
-        return ISCoordConversion.ToWorld(mx, my, z or 0)
-    end)
-    if ok and wx then return math.floor(wx), math.floor(wy) end
-
-    local player = getPlayer()
-    if player then
-        return math.floor(player:getX()), math.floor(player:getY())
+    local screenX = mx
+    local screenY = my
+    if getMouseXScaled and getMouseYScaled then
+        screenX = getMouseXScaled()
+        screenY = getMouseYScaled()
     end
+
+    local wx, wy = ISCoordConversion.ToWorld(screenX, screenY, z or 0)
+    if wx then return math.floor(wx), math.floor(wy) end
     return nil, nil
 end
 
@@ -61,10 +74,14 @@ function ISTileCopyTool:new()
     o.onSelectionMade = nil -- callback(x1,y1,x2,y2,z)
     o.onPasteConfirmed = nil -- callback(x,y,z)
     o.clipboardPreview = nil -- {width=, height=}
+    o.appliedHighlights = {}
+    o.highlightBounds = nil
     return o
 end
 
 function ISTileCopyTool:startSelecting(z, onSelectionMade)
+    clearHighlights(self.appliedHighlights)
+    self.highlightBounds = nil
     self.mode = "select"
     self.z = z or getPlayer():getZ()
     self.dragStartX, self.dragStartY = nil, nil
@@ -74,6 +91,8 @@ function ISTileCopyTool:startSelecting(z, onSelectionMade)
 end
 
 function ISTileCopyTool:startPasting(z, clipboardData, onPasteConfirmed)
+    clearHighlights(self.appliedHighlights)
+    self.highlightBounds = nil
     self.mode = "paste"
     self.z = z or getPlayer():getZ()
     self.clipboardPreview = clipboardData
@@ -83,6 +102,8 @@ function ISTileCopyTool:startPasting(z, clipboardData, onPasteConfirmed)
 end
 
 function ISTileCopyTool:cancel()
+    clearHighlights(self.appliedHighlights)
+    self.highlightBounds = nil
     self.mode = nil
     self.dragStartX, self.dragStartY = nil, nil
     self:setVisible(false)
@@ -127,21 +148,39 @@ function ISTileCopyTool:onMouseMove(dx, dy)
     return true
 end
 
---- Draws a filled + outlined rectangle covering world tiles (x1,y1)-(x2,y2)
-function ISTileCopyTool:drawWorldRect(x1, y1, x2, y2, z, r, g, b, a)
+--- Highlights a rectangle of world tiles and labels its dimensions.
+function ISTileCopyTool:drawWorldRect(x1, y1, x2, y2, z)
     local minX, maxX = math.min(x1, x2), math.max(x1, x2)
     local minY, maxY = math.min(y1, y2), math.max(y1, y2)
+    local boundsKey = table.concat({ minX, minY, maxX, maxY, z }, ",")
 
-    for gx = minX, maxX do
-        for gy = minY, maxY do
-            local sx, sy = worldToScreen(gx, gy, z)
-            if sx then
-                self:drawRect(sx - TILE_W / 2, sy - TILE_H / 2, TILE_W, TILE_H, a, r, g, b)
+    if self.highlightBounds ~= boundsKey then
+        clearHighlights(self.appliedHighlights)
+        local cell = getCell()
+        if cell then
+            for gx = minX, maxX do
+                for gy = minY, maxY do
+                    local square = cell:getGridSquare(gx, gy, z)
+                    if square then
+                        local floor = square:getFloor()
+                        if floor and floor.setHighlightColor then
+                            floor:setHighlightColor(0.15, 0.45, 1.0, 0.55)
+                        end
+                        if floor and floor.setHighlighted then
+                            floor:setHighlighted(true, false)
+                        end
+                        if square.setHighlight then
+                            square:setHighlight(true)
+                        end
+                        self.appliedHighlights[gx .. "," .. gy .. "," .. z] = true
+                    end
+                end
             end
         end
+        self.highlightBounds = boundsKey
     end
 
-    -- Border + size label at the top-left corner of the box
+    -- Keep a screen-space size label over the highlighted area.
     local tlx, tly = worldToScreen(minX, minY, z)
     if tlx then
         local w, h = (maxX - minX + 1), (maxY - minY + 1)
@@ -151,14 +190,13 @@ end
 
 function ISTileCopyTool:render()
     if self.mode == "select" and self.dragStartX then
-        self:drawWorldRect(self.dragStartX, self.dragStartY, self.dragCurX or self.dragStartX, self.dragCurY or self.dragStartY,
-            self.z, 0.15, 0.35, 1.0, 0.35)
+        self:drawWorldRect(self.dragStartX, self.dragStartY, self.dragCurX or self.dragStartX, self.dragCurY or self.dragStartY, self.z)
     elseif self.mode == "paste" and self.clipboardPreview then
         local wx, wy = screenToWorld(getMouseX(), getMouseY(), self.z)
         if wx then
             local w = self.clipboardPreview.width or 1
             local h = self.clipboardPreview.height or 1
-            self:drawWorldRect(wx, wy, wx + w - 1, wy + h - 1, self.z, 0.15, 1.0, 0.35, 0.35)
+            self:drawWorldRect(wx, wy, wx + w - 1, wy + h - 1, self.z)
         end
     end
 end

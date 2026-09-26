@@ -15,5 +15,9 @@
     "TLC_ItemsAndEdits.308BulletCasing": "7.62x51mm Bullet Casing",
     "TLC_ItemsAndEdits.ShotgunShellCasing": "Shotgun Shell Casing",
     "TLC_ItemsAndEdits.762x39BulletCasing": "7.62x39mm Bullet Casing",
-    "TLC_ItemsAndEdits.MeatStrips": "Meat Strips"
+    "TLC_ItemsAndEdits.MeatStrips": "Meat Strips",
+    "TLC_ItemsAndEdits.HardtackDoughSalted": "Salted Hardtack Dough",
+    "TLC_ItemsAndEdits.HardtackDough": "Hardtack Dough",
+    "TLC_ItemsAndEdits.Hardtack": "Hardtack",
+    "TLC_ItemsAndEdits.HardtackSalted": "Salted Hardtack"
 }

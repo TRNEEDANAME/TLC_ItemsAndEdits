@@ -3,8 +3,8 @@
 
     Receives paste requests from clients, re-checks admin rights on the
     authoritative side (never trust the client, they always lie), and if valid, applies the
-    change server-side and broadcasts the same command to every connected
-    client
+    change server-side. Core.applyArea/undoLast transmit every object they
+    add/remove to all clients themselves
 ]]
 
 require "TileCopy_Core"
@@ -24,7 +24,16 @@ local function onClientCommand(module, command, playerObj, args)
 
         Core.applyArea(args.data, args.x, args.y, args.z)
 
-        sendServerCommand(nil, "TileCopy", "paste", args)
+        sendServerCommand(playerObj, "TileCopy", "pasted", {})
+    elseif command == "undo" then
+        if not Util.isAdmin(playerObj) then
+            sendServerCommand(playerObj, "TileCopy", "denied", {})
+            return
+        end
+
+        if Core.undoLast() then
+            sendServerCommand(playerObj, "TileCopy", "undone", {})
+        end
     end
 end
 
